@@ -1,0 +1,3 @@
+export(GESE, getSegInfo, condSegProbF, trim_oneLineage, trim_unrelated)
+import(kinship2)
+importFrom("stats", "rbinom", "aggregate")
