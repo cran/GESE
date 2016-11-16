@@ -38,7 +38,7 @@ data(pednew)
 data(mapInfo)
 data(dataRaw)
 data(database)
-results <- GESE(pednew, database, dataRaw, mapInfo, threshold=1e-2)
+results <- GESE(pednew, database, 1000000, dataRaw, mapInfo, threshold=1e-2)
 results
 
 }

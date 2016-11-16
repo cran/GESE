@@ -10,7 +10,7 @@ getSegInfo <- function(pednew, dataPed, mapInfo, mode="recessive")
 	#@@ tol: the tolerance value set for numerical euqality comparison
 	#@@ onlySeg: a logical value, whether only segregation information is needed. If FALSE, p-value for the tests will be calculated too
 	#@@ resampling: a logical value, whether resampling is used to compute the p-values.
-	#@@ nsegLimit: an integer value. For any gene with the number of families segregated less than this value, the exact segregating probability will be computed using recursive function implemented in computeP.so
+	#@@ nsegLimit: an integer value. For any gene with the number of families segregated less than this value, the segregating probability will be computed using recursive function implemented in computeP.so
 	#@@ familyWeight: a data frame gives the weight for the families. If it is NA, no weighting scheme is used. Otherwise, its dimenstion should be (number of families)x(number of genes+1). The first column should be family name (column name FID). If the weights for the families are the same for all the genes, the second column should just be weight (columns name weight), otherwise the second column and above should be the gene names (columns names are GENE names).
 	 
 	#### check files formats

@@ -1,4 +1,4 @@
-GESE <- function(pednew, variantInformation, dataPed, mapInfo, threshold=1e-7, onlySeg=FALSE, familyWeight=NA)
+GESE <- function(pednew, variantInformation, dbSize, dataPed, mapInfo, threshold=1e-7, onlySeg=FALSE, familyWeight=NA)
 {	#@@ pednew:  data frame containing complete pedigree infomraiont for the subjects, the family IDs should be character variables. The required columns are FID, IID, faID, moID, and sex.
 	#@@ variantInformation: this data frame should include the information for all the variants satisfying the same filtering criteria in the chosen reference genome. The columns should include at least, but not limited to: unique SNP ID (colname SNP), GENE name (GENE), minor allele frequency in the reference database (MAF).
 	#@@ dataPed	plink raw file format, recoded to including only polymorphic variants and sequenced subjects. Also important to make sure the recoding is with respect to the minor allele in the population. The affection status of this file will be used as phenotype. The column names of this data frame should be: FID, IID, PAT, MAT, SEX, PHENOTYPE, (variant ids, do not need to match the SNP ids in the mapInfo parameter, but should be in the same order as the mapInfo variable).
@@ -85,7 +85,6 @@ GESE <- function(pednew, variantInformation, dataPed, mapInfo, threshold=1e-7, o
 	subjects <- dataPed3[,c(1:2,6)]
 	fam <- as.character(unique(subjects$FID))
 	numFam <- length(fam)
-	allGenes = sort(unique(mapInfo$GENE))
 	segInfoVar <- data.frame(mapInfo[,c("GENE", "SNP")], t(rep(NA, numFam)))
 	for(i in 1:numFam)
  	{		cat("Family ", fam[i], "\n")
@@ -128,13 +127,18 @@ GESE <- function(pednew, variantInformation, dataPed, mapInfo, threshold=1e-7, o
 	ress3 = cbind(segInfoVar, apply(segInfoVar[,-c(1,2)], 1, sum, na.rm=TRUE))
     colnames(ress3)[ncol(ress3)] <- "numSegFam"
 	ress4 = ress3[order(as.integer(ress3$numSegFam), decreasing=TRUE),]
-
+	
+	### 11/03/2016
+	### updating variant information
+	notInDatabase = mapInfo[!mapInfo$SNP %in% variantInformation$SNP,]
+	notInDatabase$MAF = 0
+	variantInformation2 = rbind(variantInformation, notInDatabase)
 	
 
     if(!onlySeg)
     {
   		cat("Calculating p-value...\n")
-		results <- getPvalue_resampling(pedigrees, subjects, variantInformation, segInfo2, threshold, familyWeight)
+		results <- getPvalue_resampling(pedigrees, subjects, variantInformation2, dbSize, segInfo2, threshold, familyWeight)
 		results$segregation <- ress2
 		results$varSeg <- ress4
 		return (results)

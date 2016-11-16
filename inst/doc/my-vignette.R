@@ -44,7 +44,7 @@ results
 results
 
 ## ---- results="hide"-----------------------------------------------------
-results <- GESE(pednew, database, dataRaw, mapInfo, threshold=1e-5,
+results <- GESE(pednew, database, 1000000, dataRaw, mapInfo, threshold=1e-5,
                 onlySeg=TRUE)
 results
 
@@ -52,7 +52,7 @@ results
 results
 
 ## ---- results="hide"-----------------------------------------------------
-results2 <- GESE(pednew, database, dataRaw, mapInfo, threshold=1e-5)
+results2 <- GESE(pednew, database, 1000000, dataRaw, mapInfo, threshold=1e-5)
 results2
 
 ## ---- echo=FALSE---------------------------------------------------------
@@ -68,7 +68,7 @@ nfam = length(fams)
 temp = runif(nfam)
 famWeight <- temp/sum(temp)
 weightFam = data.frame(FID=fams, weight=famWeight)
-results3 <- GESE(pednew, database, dataRaw, mapInfo, threshold=1e-5,
+results3 <- GESE(pednew, database, 1000000, dataRaw, mapInfo, threshold=1e-5,
              familyWeight=weightFam)
 results3$results
 

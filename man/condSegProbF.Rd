@@ -43,7 +43,7 @@ pedigrees = kinship2::pedigree(pednew$IID, pednew$faID, pednew$moID,pednew$sex,f
 subjects= dataRaw[,c(1,2,6)]
 condSegProbF(pedigrees['93'], subjects)
 condSegProbF(pedigrees['412'], subjects)
-results2 <- GESE(pednew, database, dataRaw, mapInfo, threshold=1e-2)
+results2 <- GESE(pednew, database, 1000000, dataRaw, mapInfo, threshold=1e-2)
 results2$condSegProb
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

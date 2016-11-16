@@ -109,7 +109,7 @@ The `geneSeg` or `genePairSeg` return NA values, because there is no pair of var
 
 Alternatively, we can compute segregation with dominant mode of inheritance wthout computing any probabilities using the `GESE` function and specify `onlySeg` to be TRUE:
 ```{r, results="hide"}
-results <- GESE(pednew, database, dataRaw, mapInfo, threshold=1e-5,
+results <- GESE(pednew, database, 1000000, dataRaw, mapInfo, threshold=1e-5,
                 onlySeg=TRUE)
 results
 ```
@@ -121,8 +121,8 @@ Similarly, the `segregation` value returned is a data matrix, where a logical va
 
 The `varSeg` value returned is a similar data matrix, but returns a logical value for each variant (each row) and each family (column names).
 
-## 3.2 Compute gene-based segregation test p-value.
-The gene-based segregation information may be helpful, however, it does not take into account the different family structure among the families, nor the different genetic background of different genes. The gene-based segregation test combines this information in an exact test, by approximating the marginal probability of segregation events among the families. 
+## 3.2 Compute gene-based segregation test.
+The gene-based segregation information may be helpful, however, it does not take into account the different family structure among the families, nor the different genetic background of different genes. The gene-based segregation test combines this information by approximating the marginal probability of segregation events among the families. 
 
 To compute the p-value for this test, there are a few steps in the process. 
 
@@ -139,7 +139,7 @@ To compute the p-value for this test, there are a few steps in the process.
 These steps can be done using the GESE function in one call:
 
 ```{r, results="hide"}
-results2 <- GESE(pednew, database, dataRaw, mapInfo, threshold=1e-5)
+results2 <- GESE(pednew, database, 1000000, dataRaw, mapInfo, threshold=1e-5)
 results2
 ```
 
@@ -155,7 +155,7 @@ results2$results
 ```
 
 
-## 3.3 Compute the weighted gene-based segregation test p-value.
+## 3.3 Compute the weighted gene-based segregation test.
 
 We can also incorporate additional information, such as disease severity of the cases in the families, in the weighting of the families. We can also compute the p-value for such weighted test, using resampling.
 
@@ -168,7 +168,7 @@ nfam = length(fams)
 temp = runif(nfam)
 famWeight <- temp/sum(temp)
 weightFam = data.frame(FID=fams, weight=famWeight)
-results3 <- GESE(pednew, database, dataRaw, mapInfo, threshold=1e-5,
+results3 <- GESE(pednew, database, 1000000, dataRaw, mapInfo, threshold=1e-5,
              familyWeight=weightFam)
 results3$results
 ```

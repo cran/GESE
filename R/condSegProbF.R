@@ -38,7 +38,10 @@ function(pedTemp, subjInfo)
 				 famInfoTemp <- famInfo
 				famInfoTemp[famInfoTemp$id %in% founderCases$id & famInfoTemp$id != founderCaseRelated$id[i],]$PHENOTYPE  = NA
 				max_dv <- max(caseFamTemp$dv, controlFam$dv)
-				 probA <- probA + (1/nrow(founderCaseRelated))*getTranProb_dv(caseFamTemp, controlFam, famInfoTemp, founderCaseRelated$id[i], max_dv)
+				 #edit 10/31/2016
+				 #probA <- probA + (1/nrow(founderCaseRelated))*getTranProb_dv(caseFamTemp, controlFam, famInfoTemp, founderCaseRelated$id[i], max_dv)
+				 probA <- probA + getTranProb_dv(caseFamTemp, controlFam, famInfoTemp, founderCaseRelated$id[i], max_dv)
+
 			}
 		 }else
 		 {	## remove those founder case, only use commonFounders
@@ -49,7 +52,10 @@ function(pedTemp, subjInfo)
 			 for(i in 1:length(commonFoundersTemp))
 			 {	commonFounder <- commonFoundersTemp[i]
 				 max_dv <- max(caseFamTemp$dv, controlFam$dv)
-				 probA <- probA+(1/length(commonFoundersTemp))*getTranProb_dv(caseFamTemp, controlFam, famInfoTemp, commonFounder, max_dv)
+				 #edit 10/31/2016
+				 #probA <- probA+(1/length(commonFoundersTemp))*getTranProb_dv(caseFamTemp, controlFam, famInfoTemp, commonFounder, max_dv)
+				 probA <- probA + getTranProb_dv(caseFamTemp, controlFam, famInfoTemp, commonFounder, max_dv)
+			 
 			 }
 		 }
   	 }else
@@ -61,7 +67,9 @@ function(pedTemp, subjInfo)
   	 { 
    	 	commonFounder <- commonFounders[i]
    	 	max_dv <- max(caseFam$dv, controlFam$dv)
-   	 	probA <- probA+(1/length(commonFounders))*getTranProb_dv(caseFam, controlFam, famInfo, commonFounder, max_dv)
+   	 	##edit 10/31/2016
+   	 	#probA <- probA+(1/length(commonFounders))*getTranProb_dv(caseFam, controlFam, famInfo, commonFounder, max_dv)
+    	probA <- probA + getTranProb_dv(caseFam, controlFam, famInfo, commonFounder, max_dv)
     
  	 }
   

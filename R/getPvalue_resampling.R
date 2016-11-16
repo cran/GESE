@@ -1,4 +1,4 @@
-getPvalue_resampling <- function(pedigrees, subjects, variantInformation, segregatingFam, threshold, familyWeight)
+getPvalue_resampling <- function(pedigrees, subjects, variantInformation, dbSize, segregatingFam, threshold, familyWeight)
 { ## @@ pedigrees: pedigree list of pedigree objects for all the families
   ## @@ subjects: subject information contains FID, IID, PHENOTYPE
   ### 0 indicates control, 1 indicates cases
@@ -32,7 +32,7 @@ getPvalue_resampling <- function(pedigrees, subjects, variantInformation, segreg
       {
         pedTemp <- pedigrees[as.character(fam[j])]
         indicatorSeg <- 1
-        segProbGene[i, j+1] <- segProb(pedTemp, subjects, variantMAF, indicatorSeg, condSegProb)
+        segProbGene[i, j+1] <- segProb(pedTemp, subjects, variantMAF, indicatorSeg, condSegProb, dbSize)
         
       }
       
