@@ -60,11 +60,11 @@ Then this function computes the gene-based segregating information and p-values 
 
 \references{	
 	
-Qiao, D. Lange, C., Laird, N.M., Won, S., Hobbs, B., et al. 2016. \emph{Gene-based segregation method for identifying rare variants for family-based sequencing studies.}
+Qiao, D. Lange, C., Laird, N.M., Won, S.,  Hersh, C.P., et al. (2017). \emph{Gene-based segregation method for identifying rare variants for family-based sequencing studies.} Genet Epidemiol 41(4):309-319. DOI:10.1002/gepi.22037.
 
 \url{http://scholar.harvard.edu/dqiao/gese}
 
-Bureau, A., Younkin, S.G., Parker, M.M., Bailey-Wilson, J.E., Marazita, M.L., et al. 2014. \emph{Inferring rare disease risk variants based on exact probabilities of sharing by multiple affected relatives}. Bioinformatics 30, 2189-2196
+Bureau, A., Younkin, S.G., Parker, M.M., Bailey-Wilson, J.E., Marazita, M.L., et al. (2014). \emph{Inferring rare disease risk variants based on exact probabilities of sharing by multiple affected relatives}. Bioinformatics 30, 2189-2196. DOI:10.1093/bioinformatics/btu198.
 
 }
 \author{

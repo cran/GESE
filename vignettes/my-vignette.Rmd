@@ -14,7 +14,7 @@ vignette: >
 
 
 #1 Introduction
-This tutorial briefly introduces the functions provided by the GESE package, using the example data included in the package. The paper describing this method is Qiao, D, Lange C, Laird NH, Won, S, Hobbs B, Sharon, JL, Crapo, JD, Beaty, TH, Silverman EK, and Cho MH. Gene-based Segregation Method for Identifying Rare Variants in Family-based Sequencing Studies. We have also implemented a simple pipeline to compute the GESE p-values using this R library, which is described in detail at [http://scholar.harvard.edu/dqiao/gese](http://scholar.harvard.edu/dqiao/gese).
+This tutorial briefly introduces the functions provided by the GESE package, using the example data included in the package. The paper describing this method is "Qiao, D. Lange, C., Laird, N.M., Won, S.,  Hersh, C.P., et al. 2017. Gene-based segregation method for identifying rare variants for family-based sequencing studies. Genet Epidemiol 41(4):309-319". We have also implemented a simple pipeline to compute the GESE p-values using this R library, which is described in detail at [http://scholar.harvard.edu/dqiao/gese](http://scholar.harvard.edu/dqiao/gese).
 
 
 We can load the library using:

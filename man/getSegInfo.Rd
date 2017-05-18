@@ -36,7 +36,8 @@ This function is used to compute the segregation information for different mode 
 \item{genePairSeg}{This data frame is returned only for compound heterozygous mode of inheritance. This considers any pair of genes in the data. It returns a data frame containing the information of whether any pair of variants, each in a different gene, is segregating in each of the families considered. Each row represents the information for each gene pair, summed over all possible pairs of variants in the two genes, one in each gene.}
 }
 \references{
-Qiao, D. Lange, C., Laird, N.M., Won, S., Hobbs, B., et al. 2016. {Gene-based segregation method for identifying rare variants for family-based sequencing studies.}
+Qiao, D. Lange, C., Laird, N.M., Won, S.,  Hersh, C.P., et al. (2017). \emph{Gene-based segregation method for identifying rare variants for family-based sequencing studies.} Genet Epidemiol 41(4):309-319. DOI:10.1002/gepi.22037.
+
 }
 \author{
 Dandi Qiao

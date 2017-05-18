@@ -26,7 +26,7 @@ Dandi Qiao
 Maintainer: \packageMaintainer{GESE}
 }
 \references{
-Qiao, D. Lange, C., Laird, N.M., Won, S., Hobbs, B., et al. 2016. {Gene-based segregation method for identifying rare variants for family-based sequencing studies.}
+Qiao, D. Lange, C., Laird, N.M., Won, S.,  Hersh, C.P., et al. (2017). \emph{Gene-based segregation method for identifying rare variants for family-based sequencing studies.} Genet Epidemiol 41(4):309-319. DOI:10.1002/gepi.22037.
 }
 
 \keyword{ package }

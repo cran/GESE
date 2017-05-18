@@ -130,9 +130,14 @@ GESE <- function(pednew, variantInformation, dbSize, dataPed, mapInfo, threshold
 	
 	### 11/03/2016
 	### updating variant information
-	notInDatabase = mapInfo[!mapInfo$SNP %in% variantInformation$SNP,]
-	notInDatabase$MAF = 0
-	variantInformation2 = rbind(variantInformation, notInDatabase)
+	### 05/17/2017: add the check 
+	if(any(!mapInfo$SNP %in% variantInformation$SNP))
+	{	notInDatabase = mapInfo[!mapInfo$SNP %in% variantInformation$SNP,]
+		notInDatabase$MAF = 0
+		variantInformation2 = rbind(variantInformation, notInDatabase)
+	}else
+	{	variantInformation2 = variantInformation
+	}
 	
 
     if(!onlySeg)
